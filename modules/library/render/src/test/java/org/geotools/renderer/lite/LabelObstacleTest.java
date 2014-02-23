@@ -260,7 +260,7 @@ public class LabelObstacleTest {
         RenderedImage pointsCombine = BandCombineDescriptor.create(obstacles, new double[][] { {
                 1 / 3.0, 1 / 3.0, 1 / 3.0, 0, 0 } }, null);
         // get only pitch black
-        RenderedImage binaryLabel = BinarizeDescriptor.create(labelsCombine, 1.0, null);
+        RenderedImage binaryLabel = BinarizeDescriptor.create(labelsCombine, 10.0, null);
         // get anything that is not fully white
         RenderedImage binaryObstacles = BinarizeDescriptor.create(pointsCombine, 250.0, null);
         // combine the two, only pixels that are both black in both images will be black (0)
