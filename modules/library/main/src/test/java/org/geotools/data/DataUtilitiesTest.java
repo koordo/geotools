@@ -237,6 +237,14 @@ public class DataUtilitiesTest extends DataTestCase {
         URL url = new URL("file", "////oehhwsfs09", "/some/path/on/the/server/filename.nds");
         File windowsShareFile = DataUtilities.urlToFile( url );
         assertNotNull(windowsShareFile);
+        
+        // Single slash keeps rooted path
+        assertURL("\\one", "file:/one");
+        assertURL("\\.\\one", "file:/./one");
+        
+        // Double slash makes it relative if non existent.
+        assertURL("one", "file://one");
+        assertURL("./one", "file://./one");      
     }
 
     private String replaceSlashes(String string) {
