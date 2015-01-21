@@ -2,7 +2,7 @@
  *    GeoTools - The Open Source Java GIS Toolkit
  *    http://geotools.org
  *
- *    (C) 2002-2008, Open Source Geospatial Foundation (OSGeo)
+ *    (C) 2002-2015, Open Source Geospatial Foundation (OSGeo)
  *
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Lesser General Public
@@ -76,9 +76,7 @@ public class BBOXTypeBinding extends OGCBBOXTypeBinding {
         BBOX box = (BBOX) object;
         
         if (FES.ValueReference.equals(name)) {
-            if (box.getExpression1() instanceof PropertyName) {
-                return box.getExpression1();
-            }
+            return box.getExpression1();
         }
         
         return null;
